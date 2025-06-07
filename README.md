@@ -1,0 +1,1 @@
+This pokemon project allows the user to have a unique experience with this code. The coding allows the user to go on their own adventure, as the coidng allows the user to make their own choices. As the user plays the game, they can train, fight, and level up.
