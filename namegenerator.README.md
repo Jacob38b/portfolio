@@ -1,0 +1,1 @@
+The code continuously asks the user questions in order to generate a result based on all of the answers provided by the user. The code uses if, else, and elif statements to lead the user down different paths based on the answers provided to the given questions.
