@@ -1,0 +1,104 @@
+#Jacob Tolentino
+#12/2/24
+#pokemon evolution
+#init
+import random
+#global variables
+pokemon_level = 0
+pokemon_name = "gengar"
+day = 0
+#functions
+
+
+def drawpokemon():
+    print("""
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⠲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣏⢧⠀⠛⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡗⡞⡆⠀⠈⠛⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⢡⢻⡄⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⢥⢊⢷⡈⠔⠠⠐⢆⣩⢢⡀⢀⣿⣦⡀⠀⣤⠀⠀⠀⢀⣀⣤⢴⡶⡻⣍⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⢎⡱⢊⠗⣌⠣⡜⣨⠑⣎⠹⣲⠿⣯⠻⡾⣟⣧⣴⡞⣯⢻⡜⣧⢻⣵⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⣏⠲⣄⣀⠀⠀⠀⠀⠀⢸⡘⢆⡫⠜⣤⠳⣘⠤⣋⠴⠃⠇⠙⠄⠓⠑⠢⠒⠦⡙⢬⠫⡝⢾⣣⣯⣤⢤⣤⣴⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠸⣿⡻⢟⠧⣠⠘⠻⢄⡀⠀⠀⠀⡿⡘⢤⡛⣄⡇⠃⢀⠀⠀⡀⠀⠀⠄⡀⢀⠃⠘⠀⠣⡘⢇⠻⡄⢇⡛⠿⣼⣼⠃⣀⣀⠀⣀⡀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀
+    ⠀⢈⣳⢩⠒⡭⢲⡀⠀⠈⠓⢤⣀⡷⣩⡶⡛⣥⠀⠀⠀⠀⢀⠀⠀⠁⢂⠐⠠⠀⠀⠌⠐⠈⡌⠓⡜⢣⢍⠳⣌⠯⡱⣄⠈⠉⠁⠉⠁⢈⠀⠁⢀⠀⢀⠀⣄⣤⠶⣻⠟⠁
+    ⠀⠛⠲⢧⡹⣐⢣⠹⢦⡀⢦⡘⣼⡿⣋⠴⢛⡁⠀⠠⠁⢀⠠⠀⠌⠀⠀⠠⠁⠀⠂⢀⠁⠂⢌⠱⣈⠇⣎⠳⣌⠳⡱⡌⠖⡄⠂⠌⡐⠠⢀⣂⣤⠖⡞⣹⢣⡾⠋⠀⠀⠀
+    ⠀⠀⠀⠈⢳⡱⣊⢕⢪⡙⢮⠳⣉⠖⣡⡾⠋⠀⢰⡀⠀⠠⠀⠀⠀⢀⠀⠁⠠⠐⠀⢂⠈⡐⡈⠔⣌⠚⣤⠛⣌⢳⠱⡸⢱⢈⡡⠤⢖⡻⢍⠳⣌⠳⣜⠗⠋⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠈⢳⡱⣊⢦⡙⣌⢣⠕⣪⠑⢦⡑⢲⡬⣇⠠⠐⠀⠁⢀⠀⡀⠌⠐⡀⢁⠂⢄⢠⡑⢎⡔⣫⢔⡫⣜⡡⢇⡳⡱⢪⢕⡋⢦⢣⡙⢖⣬⠟⠁⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⢻⡜⣶⣋⢦⠓⡎⢥⠛⡤⢭⠋⠀⢸⡄⠀⠌⡐⢀⠂⠄⡈⠄⡐⠠⢌⢢⠦⣙⢦⡹⢔⠮⡱⢦⠹⡜⢲⠍⣇⠞⣌⢣⢲⡽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⣹⠳⡜⢦⠛⣜⢢⡛⢬⡏⡀⠀⠀⢿⣆⠰⣈⢦⣐⠠⣐⠢⣜⡱⢎⡣⢞⡡⢖⡍⣎⣳⡽⣌⠳⣉⢧⢚⣼⡚⣴⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⢠⢇⡻⢌⠧⡛⣼⡧⢜⡡⣇⠁⢀⠀⢾⣏⢧⡙⢦⣃⠯⣔⢫⡔⠣⣜⠱⣣⣙⡦⠟⠉⣷⡱⣌⢣⢣⢎⡣⢞⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⡼⢠⠙⣎⢳⡹⢴⠻⣎⠵⣙⠦⣅⡓⠀⠸⣶⡙⢦⢃⡞⢬⠲⣌⠓⣬⡷⠛⠉⠀⠠⢀⡷⡳⣌⠇⡞⣰⠹⣌⣯⢛⡳⣒⢖⡲⣒⠖⣦⠤⠤⢀⡀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⡏⠤⡙⡌⢧⡹⢾⠀⠈⠷⣎⡹⡜⣭⢛⠿⡽⡜⣣⢣⠞⣡⢳⡼⠛⠹⠃⠀⠀⠠⢡⡼⢳⡱⢪⡙⣖⣡⠓⣼⢧⢫⠴⣩⠎⡵⣸⢘⡴⢋⡽⠻⠤⣀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⣟⠰⢠⡙⢮⢵⣻⡄⠀⢠⠋⠳⢽⣰⢋⢮⡱⢎⡵⢪⡙⣖⢫⠗⣤⣀⣀⣀⣄⣶⠫⡝⣣⡕⣣⠝⡴⣊⡝⢦⣋⢎⢧⡑⢮⠱⢎⡱⢎⡵⢊⡟⠛⠉⠀⠀
+    ⠀⠀⠀⠀⠀⠀⣏⠲⣁⢾⣩⣞⠶⣷⡀⡎⠀⠀⠀⠉⡛⠲⠽⣎⣜⢧⣙⢦⣋⠾⡰⢭⡹⣙⢞⡰⢫⣴⣟⡱⢣⢏⠶⡱⢎⡳⡜⣎⠶⣙⢦⢛⣬⡳⠗⠛⠳⠇⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⣯⢳⡰⢊⡷⣯⢿⣹⣟⣧⠀⠀⠀⢠⠃⠀⠀⠀⠈⠉⠙⠲⠛⠚⠽⠷⠓⡟⠚⠋⣩⡟⣴⢫⡝⣮⢳⣝⣻⡵⣹⣬⣳⠽⠚⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⣴⣿⡧⡽⣭⣻⣽⣯⢷⣻⣞⣷⣦⡀⡼⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⢰⠁⢀⣼⢧⣻⣜⣧⢿⣼⣳⢾⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⣸⢿⣿⣷⡝⣾⣷⣿⣿⣿⣿⣽⣾⣟⣿⣷⣦⣤⣀⡀⠀⠀⢸⠀⠀⠀⠀⢀⣮⣶⣿⣽⣯⣷⢿⣞⣿⢾⣽⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⣿⡓⣞⡿⣿⣳⣿⡿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⡿⣟⣾⣯⣷⣿⣿⣯⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⣷⠙⣦⢻⣽⣿⢻⣽⣿⣿⡟⣿⣯⣿⣿⣾⣿⣿⢻⣽⣿⣿⣷⣿⣯⣿⣿⣽⣿⣿⢻⣽⣿⣽⣾⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠸⣷⣊⠶⣭⢻⣿⣿⣯⣷⣿⣿⣿⡿⣿⣿⢿⣻⣿⣿⣿⣿⣿⣻⣿⢿⡽⢏⡳⢬⢣⣓⢮⡻⢿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠙⢿⣾⣼⣿⣳⣿⣿⣯⡷⣿⡷⣿⣿⢿⣿⣿⣿⢿⣿⣻⣿⣿⢯⡛⣜⢣⡝⣎⢳⢬⠳⣝⢯⡿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠈⢻⣷⣿⣷⣿⣿⠛⢷⣻⡽⣯⢿⣿⡾⣿⡿⣟⣿⡿⣞⣯⢳⣌⢳⡜⡬⢓⢮⣹⡞⡿⣜⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠟⢿⡏⠙⠀⠀⠈⠙⠿⢿⣾⣟⣿⣽⣿⣻⣽⡻⣜⢯⣲⢯⡛⣴⢻⣋⠷⣩⢓⡎⡗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⢿⣿⠏⠉⠙⢯⢎⡳⢎⣵⣏⣶⣯⢒⠥⣋⣼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⠏⠀⠀⠀⠈⢧⡝⣾⣿⣿⣿⣿⣾⣿⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣳⡿⣞⡿⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠛⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    """)
+drawpokemon()
+
+#Functions
+def gengar():
+    while 1:
+
+def game():
+    global day
+    global pokemon_level
+    global pokemon_name
+    while True:
+        print("Welcome trainer to Pokemon Evolution!")
+        day = day + 1
+        print("Select an activity for Day "+ str(day)) #allows user to select option for game
+        print("""
+        1. Train
+        2. Gym Battle
+        3. Rest(Display Pokemon Info)
+        4. Quit""")
+        option = int(input("1,4:"))
+
+        if option == 1: #code for leveling up pokemon in training
+            pokemon_level = pokemon_level + 1
+            print("We had a good day training with you.. Hope you had fun")
+            print("Your Pokemon level is now " + str(pokemon_level))
+
+
+        if option == 2: #code for pokemon battle
+            print("PREPARE FOR BATTLE!")
+            print("Pick a number from 1-5")
+            guess = int(input("Enter a number from 1-5"))
+            secret = (random.randint(1,5))
+            if secret == guess:
+                pokemon_level == pokemon_level + 2
+                print("You win!, the secret number was "+ str(secret)+ " . Your Pokemon gained 2 levels!")
+                print("Your Pokemon is now level "+ str(pokemon_level) + ".")
+            elif secret < guess:
+                print("You lost, you are to high, the secret number was "+ str(secret) +" . You gained nothing.")
+                print("Your Pokemon is still level "+ str(pokemon_level) + ".")
+            elif secret > guess:
+                print("You lost, you are too low, the secret number was "+ str(secret) +" . You gained nothing.")
+                print("Your Pokemon is still level "+ str(pokemon_level) + ".")
+
+        if option == 3: #shows user the pokemon level
+            if pokemon_level < 0:
+                print("Your " + pokemon_name + " is level: " + str(pokemon_level))
+
+            if pokemon_level >= 5 and pokemon_level< 10:
+                print("Your " + pokemon_name2 + " is level: " + str(pokemon_level))
+
+            if pokemon_level > 10:
+                print("Your " + pokemon_name3 + " is level: " + str(pokemon_level))
+
+        if option == 4: #allows user to leave
+            print("Sad to see you go.. But thats ok!")
+            break
