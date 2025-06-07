@@ -1,0 +1,30 @@
+def generator(): #each answer leads to a different result
+    ans = (input("Which type of playstyle do you like more, dunking or shooting?"))
+    if ans == "dunking":
+        ans = (input("Which type of players do you like more, bulls legends or lakers legends?"))
+        if ans == "bulls legends":
+            ans = (input("Which would you rather win, dunk contest or mvp"))
+            if ans == "dunk contest":
+                print("You are Nate Robinson")
+            elif ans == "mvp":
+                print("You are Derrick Rose")
+        elif ans == "lakers legends":
+            ans = (input("Which would you rather be known for, carrying the team or triple doubles?"))
+            if ans == "carrying the team":
+                print("You are lebron james")
+            elif ans == "triple doubles":
+                print("You are russel westbrook")
+    else: #each else leads to another question based on the previous answer, eventually leading to the final result
+        ans = (input("which do you prefer having, rings or no rings"))
+        if ans == "rings":
+            ans = (input("Which team, do you like more, warriors or celtics?"))
+            if ans == "warriors":
+                print("You are steph curry")
+            elif ans == "celtics":
+                print("You are ray allen")
+        elif ans == "no rings":
+            ans = (input("Which team do you like more, trailblazers or 76ers?"))
+            if ans == "trailblazers":
+                print("You are damian lillard")
+            elif ans == "76ers":
+                print("You are james harden")
