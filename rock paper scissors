@@ -1,0 +1,67 @@
+#Jacob Tolentino
+
+#init
+import random
+
+#functions
+def printscore():
+    print("you have ", wins, " wins, ", losses, " losses, and ", ties, " ties.")
+#main
+print("welcome to rock paper scissors")
+wins = 0
+losses = 0
+ties = 0
+while True: #infinite loop
+    playerchoice = input("Choose rock, paper or scissors; ")
+    #computor choice
+    computor = random.randint(1, 3)
+    if computor == 1:
+        print("computor chooses rock")
+    if computor == 2:
+        print("computor chooses paper")
+    if computor == 3:
+        print("computor chooses scissors")
+    #outcome
+    if playerchoice == "rock" and computor == 1:
+        print("tie game")
+        ties = ties + 1
+        printscore()
+    elif playerchoice == "rock" and computor == 2:
+        print("computor wins")
+        losses = losses + 1
+        printscore()
+    elif playerchoice == "rock" and computor == 3:
+        print("player wins")
+        wins = wins + 1
+        printscore()
+
+    if playerchoice == "paper" and computor == 1:
+        print("player wins")
+        wins = wins + 1
+        printscore()
+    elif playerchoice == "paper" and computor == 2:
+        print("tie game")
+        ties = ties + 1
+        printscore()
+    elif playerchoice == "paper" and computor == 3:
+        print("computor wins")
+        losses = losses + 1
+        printscore()
+
+    if playerchoice == "scissors" and computor == 1:
+        print("computor wins")
+        losses = losses + 1
+        printscore()
+    elif playerchoice == "scissors" and computor == 2:
+        print("player wins")
+        wins = wins + 1
+        printscore()
+    elif playerchoice == "rock" and computor == 3:
+        print("tie game")
+        ties = ties + 1
+        printscore()
+    keepplaying = input("would you like to play again; ")
+    if keepplaying == "no":
+        break
+    else:
+        continue
