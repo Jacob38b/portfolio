@@ -1,0 +1,6 @@
+#jacob tolentino
+adj = input("input an adjective; ")
+noun = input("input a noun; ")
+verb = input("input a verb; ")
+loc = input("input a location; ")
+print("one day, the little ", adj, " ", noun, "wanted to get some chicken wings from the ", loc, ". Unfortunately, the ", adj, " ", noun, " had no car and had to ", verb, " all the way to the ", loc, ".")
