@@ -1,0 +1,100 @@
+# Enhanced Restaurant Recommendation Program
+# --- DATA ABSTRACTION ---
+# List of restaurant data
+resturaunts = ["Alinea", "Oriole", "Boka", "Smyth + The Loyalist", "Girl & the Goat", "Kasama",
+food_type = ["Multi-sensory fine dining", "contemporary American", "creative American", "modern
+# Sorted Resturaunt Data
+restaurant_data = [
+    {"name": "Alinea", "food_type": "Multi-sensory fine dining", "details": "Alinea is a world-r
+    {"name": "Oriole", "food_type": "Contemporary American", "details": "Oriole offers modern Am
+    {"name": "Boka", "food_type": "Creative American", "details": "Boka features innovative Amer
+    {"name": "Smyth + The Loyalist", "food_type": "Modern American fine dining", "details": "A M
+    {"name": "Girl & the Goat", "food_type": "Eclectic American with global influences", "detail
+    {"name": "Kasama", "food_type": "Modern Filipino", "details": "Kasama blends traditional Fil
+    {"name": "Jeong", "food_type": "Upscale Korean", "details": "Jeong provides a high-end Korea
+    {"name": "The Omakase Room at Sushi-san", "food_type": "High-end Japanese (omakase)", "detai
+    {"name": "Frontera Grill", "food_type": "Mexican", "details": "Frontera Grill serves bold an
+    {"name": "Galit", "food_type": "Israeli and Middle Eastern", "details": "Galit specializes i
+    {"name": "Alla Vita", "food_type": "Italian with a focus on pasta and seafood", "details": "
+    {"name": "Sepia", "food_type": "Seasonal American", "details": "Sepia serves seasonal Americ
+    {"name": "Au Cheval", "food_type": "Elevated diner fare with a focus on burgers", "details":
+    {"name": "Gilt Bar", "food_type": "American cuisine with a speakeasy-style cocktail focus",
+    {"name": "Johnnie's Beef", "food_type": "Chicago-style hot dogs and Italian beef", "details"
+    {"name": "Indienne", "food_type": "Modern Indian", "details": "Indienne brings a modern appr
+    {"name": "Virtue", "food_type": "Southern American and soul food", "details": "Virtue specia
+    {"name": "John's Food and Wine", "food_type": "Modern American with a wine focus", "details"
+    {"name": "Mariscos San Pedro", "food_type": "Mexican seafood", "details": "Mariscos San Pedr
+    {"name": "Maxwell Trading Co", "food_type": "Contemporary American with local and seasonal i
+    {"name": "La Chaparrita", "food_type": "Authentic Mexican street food", "details": "La Chapa
+    {"name": "Nettare", "food_type": "Italian with fresh pasta and seafood", "details": "Nettare
+    {"name": "Gavroche", "food_type": "French brasserie", "details": "Gavroche offers a classic
+    {"name": "Brasero", "food_type": "Brazilian grilled meats", "details": "Brasero serves delic
+    {"name": "Qing Xiang Yuan Dumplings", "food_type": "Chinese dumplings", "details": "Qing Xia
+]
+# PROCEDURE
+def find_restaurants_by_food(food_keyword: str) -> list:
+    """
+    Finds and returns a list of restaurant names matching the given food keyword.
+    Parameters:
+    - food_keyword (str): the type of food the user is interested in
+    Returns:
+    - list of matching restaurant names
+    """
+    matches = []
+    for restaurant in restaurant_data:
+        if food_keyword.lower() in restaurant["food_type"].lower():
+            matches.append(restaurant["name"])
+    return matches
+# Initialize result list (sequencing)
+# Iteration
+# Selection
+# Sequencing: add to result
+def show_all_restaurants():
+    """
+    Displays all restaurant names.
+    """
+    print("List of All Restaurants:")
+    for restaurant in restaurant_data:
+        print(f"- {restaurant['name']}")
+def show_restaurant_details(restaurant_name: str):
+    """
+    Displays details of the specified restaurant.
+    Parameters:
+    - restaurant_name (str): the name of the restaurant to show details for
+    """
+    for restaurant in restaurant_data:
+        if restaurant_name.lower() == restaurant["name"].lower():
+            print(f"Details for {restaurant_name}:")
+            print(f"Food Type: {restaurant['food_type']}")
+            print(f"Details: {restaurant['details']}")
+            return
+    print("Restaurant not found. Please check the name and try again.")
+        # MENU LOOP
+while True:
+# Display the menu
+    print("Restaurant Finder Menu:")
+    print("1. Find restaurants by food type")
+    print("2. See all restaurants")
+    print("3. Get details of a specific restaurant")
+    print("4. Quit")
+    # Get user choice
+    choice = input("Enter your choice (1-4): ")
+    if choice == '1':
+        food_input = input("Enter a type of food you're craving (e.g., Italian, Korean, Mexican)
+        results = find_restaurants_by_food(food_input)
+        if results:
+            print("Matching restaurants:")
+            for name in results:
+                print(f"- {name}")
+        else:
+            print("Sorry, no restaurants matched that food type.")
+    elif choice == '2':
+        show_all_restaurants()
+    elif choice == '3':
+        restaurant_name = input("Enter the name of the restaurant for details: ")
+        show_restaurant_details(restaurant_name)
+    elif choice == '4':
+        print("Goodbye")
+        break # Exit the program
+    else:
+        print("Invalid choice, please try again.")
